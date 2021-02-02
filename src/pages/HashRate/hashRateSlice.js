@@ -10,10 +10,7 @@ export const hashRateSlice = createSlice({
   initialState: {
     loading: false,
     errors: [],
-    data: {
-      hashRate: [],
-      price: []
-    },
+    data: []
   },
   reducers: {
     getData: state => {
@@ -54,10 +51,20 @@ export const fetchData = () => async (dispatch) => {
     )
     .then( response => response.json() )
 
-    let data = {
-      hashRate: hashRateData,
-      price: priceData
-    }
+    const priceDataDates = priceData.map( data => data.t );
+
+    const data = hashRateData.map( item => {
+
+      if( priceDataDates.includes(item.t) ) {
+        return {
+          t: item.t,
+          hashRate: item.v,
+          price: priceData.filter( pricePoint => pricePoint.t === item.t )[0].v,
+        } 
+      }
+
+      return false
+    }).filter( data => data !== false );
 
     dispatch(getDataSuccess(data))
   } catch (err) {
