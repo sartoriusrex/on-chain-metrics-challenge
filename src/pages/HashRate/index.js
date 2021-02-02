@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import Spinner from 'react-bootstrap/Spinner';
@@ -8,7 +8,7 @@ import {
     fetchData
 } from './hashRateSlice';
 
-export default function HashRate() {
+export default function HashRate({timeScale, setTimeScale}) {
     const dispatch = useDispatch();
     const hashRate = useSelector(selectHashRate);
 

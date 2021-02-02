@@ -1,6 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
+import { 
+    LineChart, 
+    Line,
+    CartesianGrid,
+    XAxis,
+    YAxis,
+    Tooltip
+} from 'recharts';
 import Spinner from 'react-bootstrap/Spinner';
 
 import {
@@ -8,7 +16,7 @@ import {
     fetchData
 } from './difficultySlice';
 
-export default function Difficulty() {
+export default function Difficulty({timeScale, setTimeScale}) {
     const dispatch = useDispatch();
     const difficulty = useSelector(selectDifficulty);
 

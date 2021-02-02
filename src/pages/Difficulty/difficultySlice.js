@@ -10,10 +10,7 @@ export const difficultySlice = createSlice({
   initialState: {
     loading: false,
     errors: [],
-    data: {
-      difficult: [],
-      price: []
-    },
+    data: []
   },
   reducers: {
     getData: state => {
@@ -54,10 +51,20 @@ export const fetchData = () => async (dispatch) => {
     )
     .then( response => response.json() )
 
-    let data = {
-      difficulty: difficultyData,
-      price: priceData
-    }
+    const priceDataDates = priceData.map( data => data.t );
+
+    const data = difficultyData.map( item => {
+
+      if( priceDataDates.includes(item.t) ) {
+        return {
+          t: item.t,
+          difficulty: item.v,
+          price: priceData.filter( pricePoint => pricePoint.t === item.t )[0].v,
+        } 
+      }
+
+      return false
+    }).filter( data => data !== false );
 
     dispatch(getDataSuccess(data))
   } catch (err) {

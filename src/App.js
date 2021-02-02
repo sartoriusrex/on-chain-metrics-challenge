@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -14,6 +14,8 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
+  const [timeScale, setTimeScale] = useState('hour');
+
   return (
     <Router>
       <div>
@@ -22,10 +24,10 @@ function App() {
 
         <Switch>
           <Route path="/difficulty">
-            <Difficulty />
+            <Difficulty timescale={timeScale} setTimeScale={setTimeScale}/>
           </Route>
           <Route path="/hash-rate">
-            <HashRate />
+            <HashRate timescale={timeScale} setTimeScale={setTimeScale}/>
           </Route>
           <Route path="/">
             <Home />
