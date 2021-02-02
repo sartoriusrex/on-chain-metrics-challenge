@@ -9,6 +9,7 @@ import AppNav from './features/AppNav';
 import Home from './pages/Home';
 import Difficulty from './pages/Difficulty';
 import HashRate from './pages/HashRate';
+import SelectTimeScale from './features/SelectTimeScale';
 
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -22,12 +23,14 @@ function App() {
 
         <AppNav />
 
+        <SelectTimeScale setTimeScale={setTimeScale} />
+
         <Switch>
           <Route path="/difficulty">
-            <Difficulty timescale={timeScale} setTimeScale={setTimeScale}/>
+            <Difficulty timescale={timeScale} />
           </Route>
           <Route path="/hash-rate">
-            <HashRate timescale={timeScale} setTimeScale={setTimeScale}/>
+            <HashRate timescale={timeScale} />
           </Route>
           <Route path="/">
             <Home />

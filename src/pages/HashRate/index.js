@@ -8,7 +8,7 @@ import {
     fetchData
 } from './hashRateSlice';
 
-export default function HashRate({timeScale, setTimeScale}) {
+export default function HashRate({timeScale}) {
     const dispatch = useDispatch();
     const hashRate = useSelector(selectHashRate);
 
