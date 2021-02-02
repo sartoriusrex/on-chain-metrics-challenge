@@ -1,5 +1,23 @@
 # Frontend Engineer Coding Challenge
 
+## Notes for the reader:
+
+I chose React-bootstrap, because I am familiar with the Bootstrap API, although this is my first time implementing React-bootstrap itself. I found it quite pleasant to work with. I normally work with custom styles in SCSS or CSS using modules, although I've worked with Angular Bootstrap and Material UI in the past.
+
+I also chose to use Redux (RTK), because it's quick and easy to get started, with relatively little boilerplate, compared to the past.
+
+I chose Recharts for its simple, yet powerful API, although it was my first time using it. I will be honest. I do not often work with data-intensive applications that require charting. This was a first-time, as well as my first time using Recharts. it was very pleasant and easy to use.
+
+I only had a little bit of trouble with the API, because I was making too many requests within a short period of time.
+
+Had I more time to play with this exercise, I would have implemented a singular Chart component that takes in data to display to display, and used another component to transform the data based on the User Select Time Scale. I would have implemented cancelable promises when unmounting components after calling the API for data, and I would have cached / memoized the data returned.
+
+Alas, I am out of time.
+
+Thank you for your time and patience, and I wish you the best in finding a good candidate.
+
+=============================================================
+
 ## Requirements:
 
 You will need a [Glassnode Studio Account](https://studio.glassnode.com/) and an API Key to fetch necessary data. You 
