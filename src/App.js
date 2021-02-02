@@ -2,40 +2,23 @@ import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from 'react-router-dom';
 
+import AppNav from './features/AppNav';
 import Home from './pages/Home';
 import Difficulty from './pages/Difficulty';
 import HashRate from './pages/HashRate';
 
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
     <Router>
       <div>
 
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link to="/difficulty">
-                Difficulty
-              </Link>
-            </li>
-            <li>
-              <Link to="hash-rate">
-                Hash Rate
-              </Link>
-            </li>
-          </ul>
-        </nav>
+        <AppNav />
 
         <Switch>
           <Route path="/difficulty">
